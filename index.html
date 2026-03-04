@@ -3,39 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ads.txt Dashboard &mdash; 2026-03-04</title>
+    <title>JAMX Ads.txt Dashboard &mdash; 2026-03-05</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #0c0e14 0%, #131620 50%, #0f1219 100%);
-            color: #e1e4e8;
+            font-family: 'Roboto', sans-serif;
+            background: #292929;
+            color: #F3F1E5;
             padding: 24px;
             line-height: 1.5;
             min-height: 100vh;
         }
+
+        /* ── Header ── */
         .header {
             text-align: center;
             margin-bottom: 32px;
             padding-bottom: 20px;
-            border-bottom: 1px solid rgba(99, 110, 255, 0.2);
+            border-bottom: 1px solid rgba(221,249,108,0.15);
         }
         .header h1 {
-            font-size: 32px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 6px;
+            font-size: 36px;
+            font-weight: 900;
+            letter-spacing: 2px;
         }
-        .header .subtitle { color: #8b949e; font-size: 14px; }
+        .header h1 .logo-jamx {
+            color: #DDF96C;
+        }
+        .header h1 .logo-dash {
+            color: #F3F1E5;
+            font-weight: 300;
+        }
+        .header .subtitle { color: #78909C; font-size: 14px; margin-top: 4px; }
         .header .method-badge {
             display: inline-block; font-size: 11px; font-weight: 600;
-            padding: 3px 12px; border-radius: 20px; margin-top: 6px;
-            background: rgba(50,215,130,0.1); color: #32d782;
-            border: 1px solid rgba(50,215,130,0.2);
+            padding: 3px 12px; border-radius: 20px; margin-top: 8px;
+            background: rgba(221,249,108,0.1); color: #DDF96C;
+            border: 1px solid rgba(221,249,108,0.25);
         }
 
+        /* ── Summary Cards ── */
         .summary-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -43,27 +53,51 @@
             margin-bottom: 32px;
         }
         .summary-card {
-            background: rgba(22, 27, 34, 0.8);
-            border: 1px solid rgba(99, 110, 255, 0.15);
+            background: #333333;
+            border: 1px solid rgba(221,249,108,0.1);
             border-radius: 16px;
             padding: 24px;
             text-align: center;
-            backdrop-filter: blur(10px);
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        .summary-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-        .summary-card .number { font-size: 40px; font-weight: 800; display: block; margin-bottom: 4px; }
-        .summary-card .label { font-size: 12px; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-        .summary-card.p1 { border-color: rgba(255,75,75,0.3); }
-        .summary-card.p1 .number { color: #ff4b4b; text-shadow: 0 0 20px rgba(255,75,75,0.3); }
-        .summary-card.p2 { border-color: rgba(255,170,50,0.3); }
-        .summary-card.p2 .number { color: #ffaa32; text-shadow: 0 0 20px rgba(255,170,50,0.3); }
-        .summary-card.ok { border-color: rgba(50,215,130,0.3); }
-        .summary-card.ok .number { color: #32d782; text-shadow: 0 0 20px rgba(50,215,130,0.3); }
-        .summary-card.total { border-color: rgba(99,110,255,0.3); }
-        .summary-card.total .number { color: #636eff; text-shadow: 0 0 20px rgba(99,110,255,0.3); }
-        .summary-card.fallback-card { border-color: rgba(139,148,158,0.3); }
-        .summary-card.fallback-card .number { color: #8b949e; text-shadow: 0 0 20px rgba(139,148,158,0.3); }
+        .summary-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+        .summary-card .number { font-size: 40px; font-weight: 900; display: block; margin-bottom: 4px; }
+        .summary-card .label { font-size: 12px; color: #78909C; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .summary-card.p1 { border-color: rgba(254,90,87,0.3); }
+        .summary-card.p1 .number { color: #FE5A57; text-shadow: 0 0 20px rgba(254,90,87,0.3); }
+        .summary-card.p2 { border-color: rgba(255,171,64,0.3); }
+        .summary-card.p2 .number { color: #FFAB40; text-shadow: 0 0 20px rgba(255,171,64,0.3); }
+        .summary-card.ok { border-color: rgba(221,249,108,0.3); }
+        .summary-card.ok .number { color: #DDF96C; text-shadow: 0 0 20px rgba(221,249,108,0.3); }
+        .summary-card.total { border-color: rgba(66,133,244,0.3); }
+        .summary-card.total .number { color: #4285F4; text-shadow: 0 0 20px rgba(66,133,244,0.3); }
+        .summary-card.fallback-card { border-color: rgba(120,144,156,0.3); }
+        .summary-card.fallback-card .number { color: #78909C; text-shadow: 0 0 20px rgba(120,144,156,0.3); }
+
+        /* ── View Toggle ── */
+        .view-bar {
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+        }
+        .view-bar .view-label {
+            font-size: 13px; font-weight: 600; color: #78909C;
+            text-transform: uppercase; letter-spacing: 1px; margin-right: 4px;
+        }
+        .view-toggle {
+            display: flex; border-radius: 10px; overflow: hidden;
+            border: 1px solid rgba(221,249,108,0.25);
+        }
+        .view-toggle label {
+            padding: 10px 18px; font-size: 13px; font-weight: 600;
+            background: #333333; color: #78909C; cursor: pointer;
+            transition: all 0.2s; border-right: 1px solid rgba(221,249,108,0.15);
+            user-select: none;
+        }
+        .view-toggle label:last-child { border-right: none; }
+        .view-toggle input { display: none; }
+        .view-toggle input:checked + label {
+            background: rgba(221,249,108,0.15); color: #DDF96C;
+        }
 
         /* ── Filter Bar ── */
         .filter-bar {
@@ -72,15 +106,15 @@
         }
         .filter-select {
             padding: 10px 16px; font-size: 14px;
-            background: rgba(22, 27, 34, 0.9);
-            border: 1px solid rgba(99, 110, 255, 0.25);
-            border-radius: 10px; color: #e1e4e8; outline: none;
+            background: #333333;
+            border: 1px solid rgba(221,249,108,0.2);
+            border-radius: 10px; color: #F3F1E5; outline: none;
             min-width: 220px; cursor: pointer;
             appearance: none; -webkit-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238b949e' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2378909C' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px;
         }
-        .filter-select:focus { border-color: #636eff; box-shadow: 0 0 0 3px rgba(99,110,255,0.15); }
+        .filter-select:focus { border-color: #DDF96C; box-shadow: 0 0 0 3px rgba(221,249,108,0.1); }
 
         /* ── Copy Bar ── */
         .copy-bar {
@@ -88,51 +122,50 @@
             gap: 10px; margin-bottom: 28px; flex-wrap: wrap;
         }
         .copy-bar .copy-all-btn {
-            padding: 10px 20px; font-size: 14px; font-weight: 600;
-            background: linear-gradient(135deg, #636eff, #764ba2);
-            color: #fff; border: none; border-radius: 10px; cursor: pointer;
+            padding: 10px 20px; font-size: 14px; font-weight: 700;
+            background: #DDF96C; color: #292929;
+            border: none; border-radius: 10px; cursor: pointer;
             transition: opacity 0.2s, transform 0.1s;
         }
         .copy-bar .copy-all-btn:hover { opacity: 0.9; transform: scale(1.02); }
         .copy-bar .copy-all-btn:active { transform: scale(0.98); }
-        .copy-bar .copy-all-btn.copied { background: linear-gradient(135deg, #32d782, #28a76a); }
+        .copy-bar .copy-all-btn.copied { background: #a5d6a7; color: #1b5e20; }
         .priority-toggle {
             display: flex; border-radius: 10px; overflow: hidden;
-            border: 1px solid rgba(99,110,255,0.25);
+            border: 1px solid rgba(221,249,108,0.25);
         }
         .priority-toggle label {
             padding: 10px 18px; font-size: 13px; font-weight: 600;
-            background: rgba(22,27,34,0.9); color: #8b949e; cursor: pointer;
-            transition: all 0.2s; border-right: 1px solid rgba(99,110,255,0.15);
+            background: #333333; color: #78909C; cursor: pointer;
+            transition: all 0.2s; border-right: 1px solid rgba(221,249,108,0.15);
             user-select: none;
         }
         .priority-toggle label:last-child { border-right: none; }
         .priority-toggle input { display: none; }
         .priority-toggle input:checked + label {
-            background: rgba(99,110,255,0.2); color: #a5b4fc;
+            background: rgba(221,249,108,0.15); color: #DDF96C;
         }
 
         /* ── Domain Cards ── */
         .domain-card {
-            background: rgba(22,27,34,0.85); border: 1px solid rgba(99,110,255,0.1);
+            background: #333333; border: 1px solid rgba(221,249,108,0.08);
             border-radius: 16px; padding: 24px; margin-bottom: 16px;
-            border-left: 5px solid #2d333b; backdrop-filter: blur(10px);
-            transition: box-shadow 0.2s;
+            border-left: 5px solid #444; transition: box-shadow 0.2s;
         }
-        .domain-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
-        .domain-card.critical { border-left-color: #ff4b4b; }
-        .domain-card.warning { border-left-color: #ffaa32; }
+        .domain-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        .domain-card.critical { border-left-color: #FE5A57; }
+        .domain-card.warning { border-left-color: #FFAB40; }
         .badge.db-fallback {
-            background: rgba(255,170,50,0.15); color: #ffaa32;
-            border: 1px solid rgba(255,170,50,0.3);
+            background: rgba(255,171,64,0.15); color: #FFAB40;
+            border: 1px solid rgba(255,171,64,0.3);
         }
         .domain-header {
             display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;
         }
-        .domain-name { font-size: 20px; font-weight: 800; color: #fff; }
+        .domain-name { font-size: 20px; font-weight: 900; color: #F3F1E5; }
         .impressions {
-            font-size: 14px; color: #8b949e; font-weight: 500;
-            background: rgba(99,110,255,0.1); padding: 4px 12px; border-radius: 20px;
+            font-size: 14px; color: #78909C; font-weight: 500;
+            background: rgba(66,133,244,0.1); padding: 4px 12px; border-radius: 20px;
         }
         .badge {
             display: inline-block; font-size: 11px; font-weight: 700;
@@ -140,107 +173,120 @@
             vertical-align: middle; letter-spacing: 0.5px;
         }
         .badge.video {
-            background: linear-gradient(135deg, rgba(99,110,255,0.2), rgba(118,75,162,0.2));
-            color: #a5b4fc; border: 1px solid rgba(99,110,255,0.3);
+            background: rgba(66,133,244,0.15); color: #4285F4;
+            border: 1px solid rgba(66,133,244,0.3);
         }
         .badge.audio {
-            background: rgba(139,148,158,0.15); color: #8b949e;
-            border: 1px solid rgba(139,148,158,0.2);
+            background: rgba(120,144,156,0.15); color: #78909C;
+            border: 1px solid rgba(120,144,156,0.2);
         }
-        .sellers { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(99,110,255,0.08); }
-        .seller { font-size: 13px; color: #8b949e; padding: 2px 0; }
-        .seller-meta { color: #484f58; }
+        .sellers { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(221,249,108,0.06); }
+        .seller { font-size: 13px; color: #78909C; padding: 2px 0; }
+        .seller-meta { color: #555; }
 
         /* ── Alert Sections ── */
         .alert-section { margin-top: 12px; padding: 14px; border-radius: 12px; }
-        .p1-section { background: rgba(255,75,75,0.06); border: 1px solid rgba(255,75,75,0.12); }
-        .p2-section { background: rgba(255,170,50,0.06); border: 1px solid rgba(255,170,50,0.12); }
-        .p3-section { background: rgba(139,148,158,0.05); border: 1px solid rgba(139,148,158,0.1); }
+        .p1-section { background: rgba(254,90,87,0.06); border: 1px solid rgba(254,90,87,0.12); }
+        .p2-section { background: rgba(255,171,64,0.06); border: 1px solid rgba(255,171,64,0.12); }
+        .p3-section { background: rgba(120,144,156,0.05); border: 1px solid rgba(120,144,156,0.1); }
         .alert-header {
             display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
         }
         .alert-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .p1-title { color: #ff4b4b; }
-        .p2-title { color: #ffaa32; }
-        .p3-title { color: #8b949e; }
+        .p1-title { color: #FE5A57; }
+        .p2-title { color: #FFAB40; }
+        .p3-title { color: #78909C; }
         .alert-item { font-size: 14px; padding: 5px 0; }
         .alert-item.p1 { color: #ffa198; }
         .alert-item.p2 { color: #ffd080; }
-        .x-icon { color: #ff4b4b; margin-right: 6px; font-weight: bold; }
-        .warn-icon { color: #ffaa32; margin-right: 6px; }
+        .x-icon { color: #FE5A57; margin-right: 6px; font-weight: bold; }
+        .warn-icon { color: #FFAB40; margin-right: 6px; }
         .type-badge {
             display: inline-block; font-size: 10px; font-weight: 700;
             padding: 2px 8px; border-radius: 6px;
-            background: rgba(99,110,255,0.12); color: #a5b4fc;
+            background: rgba(66,133,244,0.12); color: #4285F4;
             margin: 0 6px; letter-spacing: 0.5px; text-transform: uppercase;
         }
-        .partner-label { color: #6e7681; font-size: 12px; margin-right: 4px; }
+        .partner-label { color: #78909C; font-size: 12px; margin-right: 4px; }
         code {
-            font-size: 12px; background: rgba(0,0,0,0.3); padding: 3px 8px;
-            border-radius: 6px; color: #c9d1d9; word-break: break-all;
-            border: 1px solid rgba(99,110,255,0.08);
+            font-size: 12px; background: rgba(0,0,0,0.35); padding: 3px 8px;
+            border-radius: 6px; color: #F3F1E5; word-break: break-all;
+            border: 1px solid rgba(221,249,108,0.06);
         }
 
         .copy-btn {
             padding: 6px 14px; font-size: 12px; font-weight: 600;
-            background: rgba(99,110,255,0.15); color: #a5b4fc;
-            border: 1px solid rgba(99,110,255,0.25); border-radius: 8px;
+            background: rgba(221,249,108,0.12); color: #DDF96C;
+            border: 1px solid rgba(221,249,108,0.25); border-radius: 8px;
             cursor: pointer; transition: all 0.2s; white-space: nowrap;
         }
-        .copy-btn:hover { background: rgba(99,110,255,0.25); }
-        .copy-btn.copied { background: rgba(50,215,130,0.2); color: #32d782; border-color: rgba(50,215,130,0.3); }
+        .copy-btn:hover { background: rgba(221,249,108,0.22); }
+        .copy-btn.copied { background: rgba(165,214,167,0.2); color: #a5d6a7; border-color: rgba(165,214,167,0.3); }
 
         .clean-section {
-            background: rgba(50,215,130,0.04); border: 1px solid rgba(50,215,130,0.2);
+            background: rgba(221,249,108,0.04); border: 1px solid rgba(221,249,108,0.15);
             border-radius: 16px; padding: 24px; margin-top: 24px;
         }
         .clean-section h3 {
-            color: #32d782; font-size: 14px; margin-bottom: 12px;
+            color: #DDF96C; font-size: 14px; margin-bottom: 12px;
             text-transform: uppercase; letter-spacing: 1px; font-weight: 700;
         }
         .clean-domains { display: flex; flex-wrap: wrap; gap: 8px; }
         .clean-domain {
-            background: rgba(50,215,130,0.08); color: #8b949e;
+            background: rgba(221,249,108,0.08); color: #78909C;
             padding: 4px 14px; border-radius: 20px; font-size: 13px;
-            border: 1px solid rgba(50,215,130,0.15);
+            border: 1px solid rgba(221,249,108,0.12);
         }
 
         /* ── Partner View ── */
         .partner-view { display: none; }
         .partner-view.active { display: block; }
         .partner-result-card {
-            background: rgba(22,27,34,0.85); border: 1px solid rgba(99,110,255,0.1);
+            background: #333333; border: 1px solid rgba(221,249,108,0.08);
             border-radius: 16px; padding: 20px; margin-bottom: 12px;
-            border-left: 5px solid #636eff;
+            border-left: 5px solid #4285F4;
         }
-        .partner-result-card .pv-domain { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+        .partner-result-card .pv-domain { font-size: 17px; font-weight: 700; color: #F3F1E5; margin-bottom: 8px; }
         .partner-result-card .pv-line {
-            font-size: 13px; padding: 4px 0; color: #c9d1d9;
+            font-size: 13px; padding: 4px 0; color: #F3F1E5;
         }
         .partner-result-card .pv-line .pv-priority {
             display: inline-block; font-size: 10px; font-weight: 700;
             padding: 2px 8px; border-radius: 6px; margin-right: 8px;
             letter-spacing: 0.5px;
         }
-        .pv-priority.p1 { background: rgba(255,75,75,0.15); color: #ff4b4b; }
-        .pv-priority.p2 { background: rgba(255,170,50,0.15); color: #ffaa32; }
+        .pv-priority.p1 { background: rgba(254,90,87,0.15); color: #FE5A57; }
+        .pv-priority.p2 { background: rgba(255,171,64,0.15); color: #FFAB40; }
 
         .footer {
-            text-align: center; color: #484f58; font-size: 12px;
+            text-align: center; color: #555; font-size: 12px;
             margin-top: 40px; padding-top: 20px;
-            border-top: 1px solid rgba(99,110,255,0.1);
+            border-top: 1px solid rgba(221,249,108,0.08);
         }
+        .footer .footer-brand { color: #DDF96C; font-weight: 700; }
         .no-results {
-            text-align: center; color: #8b949e; padding: 40px 0;
+            text-align: center; color: #78909C; padding: 40px 0;
             display: none; font-size: 15px;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Ads.txt Dashboard</h1>
-        <div class="subtitle">Report: 2026-03-04 | Activity checked: 2026-03-03</div>
+        <h1><span class="logo-jamx">jamx</span> <span class="logo-dash">Ads.txt Dashboard</span></h1>
+        <div class="subtitle">Report: 2026-03-05 | Activity checked: 2026-03-04</div>
         <div class="method-badge">&#9889; Live ads.txt verification</div>
+    </div>
+
+    <div class="view-bar">
+        <span class="view-label">View:</span>
+        <div class="view-toggle">
+            <input type="radio" name="view-filter" id="vf-all" value="all" checked>
+            <label for="vf-all">All</label>
+            <input type="radio" name="view-filter" id="vf-p1" value="p1">
+            <label for="vf-p1">P1 Only</label>
+            <input type="radio" name="view-filter" id="vf-p2" value="p2">
+            <label for="vf-p2">P2 Only</label>
+        </div>
     </div>
 
     <div class="filter-bar">
@@ -285,14 +331,14 @@
         </div>
         
         <div class="summary-card fallback-card">
-            <span class="number">3</span>
+            <span class="number">4</span>
             <span class="label">DB Fallback</span>
         </div>
     </div>
 
     <div id="domain-view">
         
-        <div class="domain-card critical" data-domain="elvocero.com">
+        <div class="domain-card critical" data-domain="elvocero.com" data-has-p1="true" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">elvocero.com</span>
@@ -314,7 +360,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 7 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card critical" data-domain="mighty990.com">
+        <div class="domain-card critical" data-domain="mighty990.com" data-has-p1="true" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">mighty990.com</span>
@@ -336,7 +382,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 48 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card critical" data-domain="motorbiscuit.com">
+        <div class="domain-card critical" data-domain="motorbiscuit.com" data-has-p1="true" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">motorbiscuit.com</span>
@@ -358,7 +404,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 92 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card critical" data-domain="mundonow.com">
+        <div class="domain-card critical" data-domain="mundonow.com" data-has-p1="true" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">mundonow.com</span>
@@ -380,7 +426,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 49 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card critical" data-domain="realclearpolitics.com">
+        <div class="domain-card critical" data-domain="realclearpolitics.com" data-has-p1="true" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">realclearpolitics.com</span>
@@ -402,7 +448,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 48 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card critical" data-domain="snigelweb.com">
+        <div class="domain-card critical" data-domain="snigelweb.com" data-has-p1="true" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">snigelweb.com</span>
@@ -424,7 +470,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 16 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card critical" data-domain="thefreedictionary.com">
+        <div class="domain-card critical" data-domain="thefreedictionary.com" data-has-p1="true" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">thefreedictionary.com</span>
@@ -446,7 +492,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 79 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card critical" data-domain="toddstarnes.com">
+        <div class="domain-card critical" data-domain="toddstarnes.com" data-has-p1="true" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">toddstarnes.com</span>
@@ -468,7 +514,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 46 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card warning" data-domain="Investorshub.com">
+        <div class="domain-card warning" data-domain="Investorshub.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">Investorshub.com</span>
@@ -483,7 +529,7 @@
                 <div class="alert-header"><div class="alert-title p2-title">P2 WARNING &mdash; 1 missing line(s)</div><button class="copy-btn section-copy" onclick="copySectionLines(this, 'p2')">Copy P2</button></div>
                 <div class="alert-item p2" data-partner="Unknown"><span class="warn-icon">&#9888;</span> <span class="type-badge">audio</span> <code>dxkulture.com, 98869, RESELLER</code></div>
             </div></div>
-        <div class="domain-card warning" data-domain="advfn.com">
+        <div class="domain-card warning" data-domain="advfn.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">advfn.com</span>
@@ -498,7 +544,7 @@
                 <div class="alert-header"><div class="alert-title p2-title">P2 WARNING &mdash; 1 missing line(s)</div><button class="copy-btn section-copy" onclick="copySectionLines(this, 'p2')">Copy P2</button></div>
                 <div class="alert-item p2" data-partner="Unknown"><span class="warn-icon">&#9888;</span> <span class="type-badge">audio</span> <code>dxkulture.com, 98869, RESELLER</code></div>
             </div></div>
-        <div class="domain-card warning" data-domain="awfulannouncing.com">
+        <div class="domain-card warning" data-domain="awfulannouncing.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">awfulannouncing.com</span>
@@ -513,7 +559,7 @@
                 <div class="alert-header"><div class="alert-title p2-title">P2 WARNING &mdash; 1 missing line(s)</div><button class="copy-btn section-copy" onclick="copySectionLines(this, 'p2')">Copy P2</button></div>
                 <div class="alert-item p2" data-partner="Unknown"><span class="warn-icon">&#9888;</span> <span class="type-badge">audio</span> <code>dxkulture.com, 98869, RESELLER</code></div>
             </div></div>
-        <div class="domain-card warning" data-domain="brobible.com">
+        <div class="domain-card warning" data-domain="brobible.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">brobible.com</span>
@@ -531,7 +577,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 56 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card warning" data-domain="coruzant.com">
+        <div class="domain-card warning" data-domain="coruzant.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">coruzant.com</span>
@@ -546,7 +592,7 @@
                 <div class="alert-header"><div class="alert-title p2-title">P2 WARNING &mdash; 1 missing line(s)</div><button class="copy-btn section-copy" onclick="copySectionLines(this, 'p2')">Copy P2</button></div>
                 <div class="alert-item p2" data-partner="Unknown"><span class="warn-icon">&#9888;</span> <span class="type-badge">audio</span> <code>dxkulture.com, 98869, RESELLER</code></div>
             </div></div>
-        <div class="domain-card warning" data-domain="dailytruthreport.com">
+        <div class="domain-card warning" data-domain="dailytruthreport.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">dailytruthreport.com</span>
@@ -564,7 +610,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 10 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card warning" data-domain="entertainment-focus.com">
+        <div class="domain-card warning" data-domain="entertainment-focus.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">entertainment-focus.com</span>
@@ -582,7 +628,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 4 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card warning" data-domain="laprensagrafica.com">
+        <div class="domain-card warning" data-domain="laprensagrafica.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">laprensagrafica.com</span>
@@ -600,7 +646,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 13 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card warning" data-domain="realgm.com">
+        <div class="domain-card warning" data-domain="realgm.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">realgm.com</span>
@@ -615,7 +661,7 @@
                 <div class="alert-header"><div class="alert-title p2-title">P2 WARNING &mdash; 1 missing line(s)</div><button class="copy-btn section-copy" onclick="copySectionLines(this, 'p2')">Copy P2</button></div>
                 <div class="alert-item p2" data-partner="Unknown"><span class="warn-icon">&#9888;</span> <span class="type-badge">audio</span> <code>dxkulture.com, 98869, RESELLER</code></div>
             </div></div>
-        <div class="domain-card warning" data-domain="soapoperadigest.com">
+        <div class="domain-card warning" data-domain="soapoperadigest.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">soapoperadigest.com</span>
@@ -633,7 +679,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 10 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card warning" data-domain="stockhouse.com">
+        <div class="domain-card warning" data-domain="stockhouse.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">stockhouse.com</span>
@@ -648,7 +694,7 @@
                 <div class="alert-header"><div class="alert-title p2-title">P2 WARNING &mdash; 9 missing line(s)</div><button class="copy-btn section-copy" onclick="copySectionLines(this, 'p2')">Copy P2</button></div>
                 <div class="alert-item p2" data-partner="SoundStack"><span class="warn-icon">&#9888;</span> <span class="partner-label">SoundStack</span> <span class="type-badge">audio</span> <code>soundstack.com, stack-354, RESELLER</code></div><div class="alert-item p2" data-partner="SoundStack"><span class="warn-icon">&#9888;</span> <span class="partner-label">SoundStack</span> <span class="type-badge">audio</span> <code>soundstack.com, 99, RESELLER</code></div><div class="alert-item p2" data-partner="SoundStack"><span class="warn-icon">&#9888;</span> <span class="partner-label">SoundStack</span> <span class="type-badge">audio</span> <code>adswizz.com, 33, RESELLER</code></div><div class="alert-item p2" data-partner="SoundStack"><span class="warn-icon">&#9888;</span> <span class="partner-label">SoundStack</span> <span class="type-badge">audio</span> <code>thisisdax.com, 5379, RESELLER</code></div><div class="alert-item p2" data-partner="SoundStack"><span class="warn-icon">&#9888;</span> <span class="partner-label">SoundStack</span> <span class="type-badge">audio</span> <code>thisisdax.com, 5390, RESELLER</code></div><div class="alert-item p2" data-partner="SoundStack"><span class="warn-icon">&#9888;</span> <span class="partner-label">SoundStack</span> <span class="type-badge">audio</span> <code>adswizz.com, 52593, RESELLER</code></div><div class="alert-item p2" data-partner="SoundStack"><span class="warn-icon">&#9888;</span> <span class="partner-label">SoundStack</span> <span class="type-badge">audio</span> <code>targetspot.com, 387, RESELLER, feb28ed826dcf532</code></div><div class="alert-item p2" data-partner="SoundStack"><span class="warn-icon">&#9888;</span> <span class="partner-label">SoundStack</span> <span class="type-badge">audio</span> <code>adswizz.com, 6, RESELLER</code></div><div class="alert-item p2" data-partner="Unknown"><span class="warn-icon">&#9888;</span> <span class="type-badge">audio</span> <code>dxkulture.com, 98869, RESELLER</code></div>
             </div></div>
-        <div class="domain-card warning" data-domain="thecomeback.com">
+        <div class="domain-card warning" data-domain="thecomeback.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">thecomeback.com</span>
@@ -663,7 +709,7 @@
                 <div class="alert-header"><div class="alert-title p2-title">P2 WARNING &mdash; 1 missing line(s)</div><button class="copy-btn section-copy" onclick="copySectionLines(this, 'p2')">Copy P2</button></div>
                 <div class="alert-item p2" data-partner="Unknown"><span class="warn-icon">&#9888;</span> <span class="type-badge">audio</span> <code>dxkulture.com, 98869, RESELLER</code></div>
             </div></div>
-        <div class="domain-card warning" data-domain="thehill.com">
+        <div class="domain-card warning" data-domain="thehill.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">thehill.com</span>
@@ -681,7 +727,7 @@
             <div class="alert-section p3-section">
                 <div class="alert-title p3-title">Note: 4 tier-3 entries also missing</div>
             </div></div>
-        <div class="domain-card warning" data-domain="totalprosports.com">
+        <div class="domain-card warning" data-domain="totalprosports.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">totalprosports.com</span>
@@ -696,7 +742,7 @@
                 <div class="alert-header"><div class="alert-title p2-title">P2 WARNING &mdash; 5 missing line(s)</div><button class="copy-btn section-copy" onclick="copySectionLines(this, 'p2')">Copy P2</button></div>
                 <div class="alert-item p2" data-partner="SOVERN"><span class="warn-icon">&#9888;</span> <span class="partner-label">SOVERN</span> <span class="type-badge">video</span> <code>lijit.com, 588741, DIRECT, fafdf38b16bf6b2b</code></div><div class="alert-item p2" data-partner="SOVERN"><span class="warn-icon">&#9888;</span> <span class="partner-label">SOVERN</span> <span class="type-badge">video</span> <code>lijit.com, 588741-eb, DIRECT, fafdf38b16bf6b2b</code></div><div class="alert-item p2" data-partner="SOVERN"><span class="warn-icon">&#9888;</span> <span class="partner-label">SOVERN</span> <span class="type-badge">video</span> <code>opera.com, pub10014056052800, RESELLER, 55a0c5fd61378de3</code></div><div class="alert-item p2" data-partner="SOVERN"><span class="warn-icon">&#9888;</span> <span class="partner-label">SOVERN</span> <span class="type-badge">video</span> <code>axonix.com, 59143, RESELLER, bc385f2b4a87b721</code></div><div class="alert-item p2" data-partner="SOVERN"><span class="warn-icon">&#9888;</span> <span class="partner-label">SOVERN</span> <span class="type-badge">video</span> <code>programmaticx.ai, 100464, RESELLER</code></div>
             </div></div>
-        <div class="domain-card warning" data-domain="truthlion.com">
+        <div class="domain-card warning" data-domain="truthlion.com" data-has-p1="false" data-has-p2="true">
             <div class="domain-header">
                 <div>
                     <span class="domain-name">truthlion.com</span>
@@ -727,25 +773,36 @@
     <div class="no-results" id="no-results">No domains match your selection.</div>
 
     <div class="footer">
-        Generated by Ads.txt Dashboard &middot; March 04, 2026 at 00:00 &middot; Live ads.txt fetch
+        Generated by <span class="footer-brand">jamx</span> Ads.txt Dashboard &middot; March 05, 2026 at 00:00 &middot; Live ads.txt fetch
     </div>
 
     <script>
     const ALL_DATA = [{"domain": "Investorshub.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "advfn.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "awfulannouncing.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "lijit.com, 588741, DIRECT, fafdf38b16bf6b2b", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "lijit.com, 588741-eb, DIRECT, fafdf38b16bf6b2b", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "openx.com, 538959099, RESELLER, 6a698e2ec38604c6", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "pubmatic.com, 137711, RESELLER, 5d62403b186f2ace", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "pubmatic.com, 156212, RESELLER, 5d62403b186f2ace", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "rubiconproject.com, 17960, RESELLER, 0bfd66d529a55807", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "appnexus.com, 1019, RESELLER, f5ab79cb980f11d1", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "video.unrulymedia.com, 2444764291, RESELLER", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "krushmedia.com, AJxF6R572a9M6CaTvK, RESELLER", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "motorik.io, 100463, RESELLER", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "smaato.com, 1100056344, RESELLER, 07bcf65f187117b4", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "smartadserver.com, 4926, RESELLER, 060d053dcf45cbf3", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "opera.com, pub10014056052800, RESELLER, 55a0c5fd61378de3", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "axonix.com, 59143, RESELLER, bc385f2b4a87b721", "type": "video"}, {"domain": "brobible.com", "partner": "SOVERN", "priority": 2, "row": "programmaticx.ai, 100464, RESELLER", "type": "video"}, {"domain": "brobible.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "brobible.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-9135355251665930, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "brobible.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-2930805104418204, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "coruzant.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "dailytruthreport.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "elvocero.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, jamx, DIRECT", "type": "audio"}, {"domain": "elvocero.com", "partner": "Tvisonary", "priority": 1, "row": "tvisionary.co, 4569100, DIRECT", "type": "audio"}, {"domain": "elvocero.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, stack-354, RESELLER", "type": "audio"}, {"domain": "elvocero.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, 99, RESELLER", "type": "audio"}, {"domain": "elvocero.com", "partner": "SoundStack", "priority": 2, "row": "targetspot.com, 387, RESELLER, feb28ed826dcf532", "type": "audio"}, {"domain": "elvocero.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 6, RESELLER", "type": "audio"}, {"domain": "elvocero.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "entertainment-focus.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "laprensagrafica.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, podiumaudio, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, 509, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, jamx, DIRECT", "type": "audio"}, {"domain": "mighty990.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, 669, DIRECT", "type": "audio"}, {"domain": "mighty990.com", "partner": "Xander", "priority": 1, "row": "xandr.com, 15606, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "Magnite", "priority": 1, "row": "rubiconproject.com, 26992, DIRECT, 0bfd66d529a55807", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 1, "row": "adswizz.com, 99, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 1, "row": "adswizz.com, empirestreaming, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 1, "row": "appnexus.com, 3277, RESELLER, f5ab79cb980f11d1", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 1, "row": "appnexus.com, 1577, RESELLER, f5ab79cb980f11d1", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 1, "row": "adswizz.com, SoundStack-Spreaker, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 1, "row": "katzdigital.com, 80, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 1, "row": "katzdigital.com, 318, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "Entravision", "priority": 1, "row": "entravision.com, 1562, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "Entravision", "priority": 1, "row": "adswizz.com, 347, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "Tvisonary", "priority": 1, "row": "tvisionary.co, 4569100, DIRECT", "type": "audio"}, {"domain": "mighty990.com", "partner": "Tvisonary", "priority": 1, "row": "rubiconproject.com, 26254, RESELLER, 0bfd66d529a55807", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "rubiconproject.com, 17048, RESELLER, 0bfd66d529a55807", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "rubiconproject.com,20488,RESELLER,0bfd66d529a55807", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, tpx, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 658, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, stack-354, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, 99, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 33, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5379, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5390, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 52593, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "targetspot.com, 387, RESELLER, feb28ed826dcf532", "type": "audio"}, {"domain": "mighty990.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 6, RESELLER", "type": "audio"}, {"domain": "mighty990.com", "partner": "Consumable", "priority": 2, "row": "tritondigital.com, 106423, RESELLER, 19b4454d0b87b58b", "type": "audio"}, {"domain": "mighty990.com", "partner": "Equativ", "priority": 2, "row": "smartadserver.com, 5382, RESELLER, 060d053dcf45cbf3", "type": "audio"}, {"domain": "mighty990.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, podiumaudio, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, 509, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, jamx, DIRECT", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, 669, DIRECT", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Xander", "priority": 1, "row": "xandr.com, 15606, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Magnite", "priority": 1, "row": "rubiconproject.com, 26992, DIRECT, 0bfd66d529a55807", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Magnite", "priority": 1, "row": "rubiconproject.com, 19564, RESELLER, 0bfd66d529a55807", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 1, "row": "adswizz.com, 99, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 1, "row": "adswizz.com, empirestreaming, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 1, "row": "appnexus.com, 3277, RESELLER, f5ab79cb980f11d1", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 1, "row": "appnexus.com, 1577, RESELLER, f5ab79cb980f11d1", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 1, "row": "adswizz.com, SoundStack-Spreaker, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 1, "row": "katzdigital.com, 80, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 1, "row": "katzdigital.com, 318, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Entravision", "priority": 1, "row": "entravision.com, 1562, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Entravision", "priority": 1, "row": "adswizz.com, 347, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Tvisonary", "priority": 1, "row": "tvisionary.co, 4569100, DIRECT", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Tvisonary", "priority": 1, "row": "rubiconproject.com, 26254, RESELLER, 0bfd66d529a55807", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Sonobi", "priority": 1, "row": "sonobi.com, 12b4933bb0, RESELLER, d1a215d9eb5aee9e", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Connatix", "priority": 1, "row": "connatix.com, 2045789797710511, DIRECT, 2af98acdee0e81ed", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 1, "row": "google.com, pub-1929615694373103, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 1, "row": "video.unrulymedia.com, 687806135, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 1, "row": "pubmatic.com, 156592, RESELLER, 5d62403b186f2ace", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 1, "row": "openx.com, 539496816, RESELLER, 6a698e2ec38604c6", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 1, "row": "indexexchange.com, 190549, RESELLER, 50b1c356f2c5c8fc", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 1, "row": "triplelift.com, 12200, RESELLER, 6c33edb13117fd86", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 1, "row": "appnexus.com, 17444, RESELLER, f5ab79cb980f11d1", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 1, "row": "media.net, 8CUP5F2LD, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 1, "row": "trustedstack.com, TSRIFIRO2, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 1, "row": "smartadserver.com, 3630, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 1, "row": "ottadvisors.com, 23208720669, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Magnite", "priority": 2, "row": "rubiconproject.com, 23876, RESELLER, 0bfd66d529a55807", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "rubiconproject.com, 17048, RESELLER, 0bfd66d529a55807", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "rubiconproject.com,20488,RESELLER,0bfd66d529a55807", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, tpx, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 658, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, stack-354, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, 99, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 33, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5379, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5390, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 52593, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "targetspot.com, 387, RESELLER, feb28ed826dcf532", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 6, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Consumable", "priority": 2, "row": "tritondigital.com, 106423, RESELLER, 19b4454d0b87b58b", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Equativ", "priority": 2, "row": "smartadserver.com, 5382, RESELLER, 060d053dcf45cbf3", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Nexxen", "priority": 2, "row": "video.unrulymedia.com, 129651722, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "lijit.com, 588741, DIRECT, fafdf38b16bf6b2b", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "lijit.com, 588741-eb, DIRECT, fafdf38b16bf6b2b", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "openx.com, 538959099, RESELLER, 6a698e2ec38604c6", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "pubmatic.com, 137711, RESELLER, 5d62403b186f2ace", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "pubmatic.com, 156212, RESELLER, 5d62403b186f2ace", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "rubiconproject.com, 17960, RESELLER, 0bfd66d529a55807", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "appnexus.com, 1019, RESELLER, f5ab79cb980f11d1", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "video.unrulymedia.com, 2444764291, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "krushmedia.com, AJxF6R572a9M6CaTvK, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "motorik.io, 100463, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "smaato.com, 1100056344, RESELLER, 07bcf65f187117b4", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "smartadserver.com, 4926, RESELLER, 060d053dcf45cbf3", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "opera.com, pub10014056052800, RESELLER, 55a0c5fd61378de3", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "axonix.com, 59143, RESELLER, bc385f2b4a87b721", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "SOVERN", "priority": 2, "row": "programmaticx.ai, 100464, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "video.unrulymedia.com, 776418614052335749, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "gannett.com, 22597229605, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-5717092533913515, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "loopme.com, 11186, RESELLER, 6c8d5f95897a5a3b", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "pubmatic.com, 166226, RESELLER, 5d62403b186f2ace", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "inmobi.com, 64d831e7ed4840ac8ea2283745f07d75, RESELLER, 83e75a7ae333ca9d", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "gumgum.com, 12991, RESELLER, ffdef49475d318a9", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "adform.com, 3124, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "smaato.com, 1100055555, RESELLER, 07bcf65f187117b4", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "sharethrough.com, KnLYRz1v, RESELLER, d53b998a7bd4ecd2", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "pmbmonetize.com, 22597229605, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-4836542095728076, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "opamarketplace.com, 22597229605, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-9135355251665930, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "adipolosolutions.com, 22597229605, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-4903453974745530, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "adipolo.com, 22597229605, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-2930805104418204, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "smartadline.com, 22703897216, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-6804276076764268, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "appnexus.com, 16912, RESELLER, f5ab79cb980f11d1", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "risecodes.com, 60053eeffc482800014c29be, RESELLER", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "pubmatic.com, 160295, RESELLER, 5d62403b186f2ace", "type": "video"}, {"domain": "motorbiscuit.com", "partner": "Unknown", "priority": 2, "row": "sharethrough.com, 5926d422, RESELLER, d53b998a7bd4ecd2", "type": "video"}, {"domain": "mundonow.com", "partner": "Magnite", "priority": 1, "row": "rubiconproject.com, 26992, DIRECT, 0bfd66d529a55807", "type": "audio"}, {"domain": "mundonow.com", "partner": "Tvisonary", "priority": 1, "row": "tvisionary.co, 4569100, DIRECT", "type": "audio"}, {"domain": "mundonow.com", "partner": "Tvisonary", "priority": 1, "row": "rubiconproject.com, 26254, RESELLER, 0bfd66d529a55807", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "rubiconproject.com, 17048, RESELLER, 0bfd66d529a55807", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "rubiconproject.com,20488,RESELLER,0bfd66d529a55807", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, tpx, RESELLER", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 658, RESELLER", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, stack-354, RESELLER", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, 99, RESELLER", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 33, RESELLER", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5379, RESELLER", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5390, RESELLER", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 52593, RESELLER", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "targetspot.com, 387, RESELLER, feb28ed826dcf532", "type": "audio"}, {"domain": "mundonow.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 6, RESELLER", "type": "audio"}, {"domain": "mundonow.com", "partner": "Consumable", "priority": 2, "row": "tritondigital.com, 106423, RESELLER, 19b4454d0b87b58b", "type": "audio"}, {"domain": "mundonow.com", "partner": "Equativ", "priority": 2, "row": "smartadserver.com, 5382, RESELLER, 060d053dcf45cbf3", "type": "audio"}, {"domain": "mundonow.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "SoundStack", "priority": 1, "row": "adswizz.com, 99, RESELLER", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "SoundStack", "priority": 1, "row": "appnexus.com, 3277, RESELLER, f5ab79cb980f11d1", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "SoundStack", "priority": 1, "row": "appnexus.com, 1577, RESELLER, f5ab79cb980f11d1", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "Equativ", "priority": 2, "row": "smartadserver.com, 5382, RESELLER, 060d053dcf45cbf3", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, 99, RESELLER", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 33, RESELLER", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5379, RESELLER", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5390, RESELLER", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 52593, RESELLER", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "SoundStack", "priority": 2, "row": "targetspot.com, 387, RESELLER, feb28ed826dcf532", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 6, RESELLER", "type": "audio"}, {"domain": "realclearpolitics.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "realgm.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "snigelweb.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, jamx, DIRECT", "type": "audio"}, {"domain": "snigelweb.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, 669, DIRECT", "type": "audio"}, {"domain": "snigelweb.com", "partner": "Magnite", "priority": 1, "row": "rubiconproject.com, 26992, DIRECT, 0bfd66d529a55807", "type": "audio"}, {"domain": "snigelweb.com", "partner": "Tvisonary", "priority": 1, "row": "tvisionary.co, 4569100, DIRECT", "type": "audio"}, {"domain": "snigelweb.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, stack-354, RESELLER", "type": "audio"}, {"domain": "snigelweb.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, 99, RESELLER", "type": "audio"}, {"domain": "snigelweb.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 33, RESELLER", "type": "audio"}, {"domain": "snigelweb.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 52593, RESELLER", "type": "audio"}, {"domain": "snigelweb.com", "partner": "SoundStack", "priority": 2, "row": "targetspot.com, 387, RESELLER, feb28ed826dcf532", "type": "audio"}, {"domain": "snigelweb.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 6, RESELLER", "type": "audio"}, {"domain": "snigelweb.com", "partner": "Equativ", "priority": 2, "row": "smartadserver.com, 5382, RESELLER, 060d053dcf45cbf3", "type": "audio"}, {"domain": "snigelweb.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "soapoperadigest.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, stack-354, RESELLER", "type": "audio"}, {"domain": "soapoperadigest.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, 99, RESELLER", "type": "audio"}, {"domain": "soapoperadigest.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 33, RESELLER", "type": "audio"}, {"domain": "soapoperadigest.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 52593, RESELLER", "type": "audio"}, {"domain": "soapoperadigest.com", "partner": "SoundStack", "priority": 2, "row": "targetspot.com, 387, RESELLER, feb28ed826dcf532", "type": "audio"}, {"domain": "soapoperadigest.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 6, RESELLER", "type": "audio"}, {"domain": "soapoperadigest.com", "partner": "Equativ", "priority": 2, "row": "smartadserver.com, 5382, RESELLER, 060d053dcf45cbf3", "type": "audio"}, {"domain": "soapoperadigest.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "stockhouse.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, stack-354, RESELLER", "type": "audio"}, {"domain": "stockhouse.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, 99, RESELLER", "type": "audio"}, {"domain": "stockhouse.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 33, RESELLER", "type": "audio"}, {"domain": "stockhouse.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5379, RESELLER", "type": "audio"}, {"domain": "stockhouse.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5390, RESELLER", "type": "audio"}, {"domain": "stockhouse.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 52593, RESELLER", "type": "audio"}, {"domain": "stockhouse.com", "partner": "SoundStack", "priority": 2, "row": "targetspot.com, 387, RESELLER, feb28ed826dcf532", "type": "audio"}, {"domain": "stockhouse.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 6, RESELLER", "type": "audio"}, {"domain": "stockhouse.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "thecomeback.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, jamx, DIRECT", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, 669, DIRECT", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "Xander", "priority": 1, "row": "xandr.com, 15606, RESELLER", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "Magnite", "priority": 1, "row": "rubiconproject.com, 26992, DIRECT, 0bfd66d529a55807", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "SoundStack", "priority": 1, "row": "adswizz.com, SoundStack-Spreaker, RESELLER", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "SoundStack", "priority": 1, "row": "katzdigital.com, 80, RESELLER", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "SoundStack", "priority": 1, "row": "katzdigital.com, 318, RESELLER", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "Entravision", "priority": 1, "row": "entravision.com, 1562, RESELLER", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "Tvisonary", "priority": 1, "row": "tvisionary.co, 4569100, DIRECT", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "Connatix", "priority": 1, "row": "connatix.com, 2045789797710511, DIRECT, 2af98acdee0e81ed", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, tpx, RESELLER", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 658, RESELLER", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 33, RESELLER", "type": "audio"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "lijit.com, 588741, DIRECT, fafdf38b16bf6b2b", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "lijit.com, 588741-eb, DIRECT, fafdf38b16bf6b2b", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "openx.com, 538959099, RESELLER, 6a698e2ec38604c6", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "pubmatic.com, 137711, RESELLER, 5d62403b186f2ace", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "pubmatic.com, 156212, RESELLER, 5d62403b186f2ace", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "rubiconproject.com, 17960, RESELLER, 0bfd66d529a55807", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "appnexus.com, 1019, RESELLER, f5ab79cb980f11d1", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "video.unrulymedia.com, 2444764291, RESELLER", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "krushmedia.com, AJxF6R572a9M6CaTvK, RESELLER", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "motorik.io, 100463, RESELLER", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "smaato.com, 1100056344, RESELLER, 07bcf65f187117b4", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "smartadserver.com, 4926, RESELLER, 060d053dcf45cbf3", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "opera.com, pub10014056052800, RESELLER, 55a0c5fd61378de3", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "axonix.com, 59143, RESELLER, bc385f2b4a87b721", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "SOVERN", "priority": 2, "row": "programmaticx.ai, 100464, RESELLER", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-5717092533913515, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-4836542095728076, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-9135355251665930, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-4903453974745530, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "thefreedictionary.com", "partner": "Unknown", "priority": 2, "row": "google.com, pub-2930805104418204, RESELLER, f08c47fec0942fa0", "type": "video"}, {"domain": "thehill.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, jamx, DIRECT", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "AdsWizz", "priority": 1, "row": "adswizz.com, 669, DIRECT", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "Xander", "priority": 1, "row": "xandr.com, 15606, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "Magnite", "priority": 1, "row": "rubiconproject.com, 26992, DIRECT, 0bfd66d529a55807", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 1, "row": "katzdigital.com, 80, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 1, "row": "katzdigital.com, 318, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "Tvisonary", "priority": 1, "row": "tvisionary.co, 4569100, DIRECT", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "Tvisonary", "priority": 1, "row": "rubiconproject.com, 26254, RESELLER, 0bfd66d529a55807", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "rubiconproject.com, 17048, RESELLER, 0bfd66d529a55807", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "rubiconproject.com,20488,RESELLER,0bfd66d529a55807", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, tpx, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 658, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, stack-354, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "soundstack.com, 99, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 33, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5379, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "thisisdax.com, 5390, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 52593, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "targetspot.com, 387, RESELLER, feb28ed826dcf532", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "SoundStack", "priority": 2, "row": "adswizz.com, 6, RESELLER", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "Consumable", "priority": 2, "row": "tritondigital.com, 106423, RESELLER, 19b4454d0b87b58b", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "Equativ", "priority": 2, "row": "smartadserver.com, 5382, RESELLER, 060d053dcf45cbf3", "type": "audio"}, {"domain": "toddstarnes.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}, {"domain": "totalprosports.com", "partner": "SOVERN", "priority": 2, "row": "lijit.com, 588741, DIRECT, fafdf38b16bf6b2b", "type": "video"}, {"domain": "totalprosports.com", "partner": "SOVERN", "priority": 2, "row": "lijit.com, 588741-eb, DIRECT, fafdf38b16bf6b2b", "type": "video"}, {"domain": "totalprosports.com", "partner": "SOVERN", "priority": 2, "row": "opera.com, pub10014056052800, RESELLER, 55a0c5fd61378de3", "type": "video"}, {"domain": "totalprosports.com", "partner": "SOVERN", "priority": 2, "row": "axonix.com, 59143, RESELLER, bc385f2b4a87b721", "type": "video"}, {"domain": "totalprosports.com", "partner": "SOVERN", "priority": 2, "row": "programmaticx.ai, 100464, RESELLER", "type": "video"}, {"domain": "truthlion.com", "partner": "Unknown", "priority": 2, "row": "dxkulture.com, 98869, RESELLER", "type": "audio"}];
 
+    // ── View filter (All / P1 Only / P2 Only) ──
+    document.querySelectorAll('input[name="view-filter"]').forEach(function(radio) {
+        radio.addEventListener('change', function() { applyFilters(); });
+    });
+
+    function getViewFilter() {
+        var checked = document.querySelector('input[name="view-filter"]:checked');
+        return checked ? checked.value : 'all';
+    }
+
     function applyFilters() {
-        const domain = document.getElementById('domain-picker').value;
-        const partner = document.getElementById('partner-picker').value;
-        const domainView = document.getElementById('domain-view');
-        const partnerView = document.getElementById('partner-view');
-        const cleanSection = document.querySelector('.clean-section');
+        var domain = document.getElementById('domain-picker').value;
+        var partner = document.getElementById('partner-picker').value;
+        var viewFilter = getViewFilter();
+        var domainView = document.getElementById('domain-view');
+        var partnerView = document.getElementById('partner-view');
+        var cleanSection = document.querySelector('.clean-section');
 
         // If partner is selected, show partner-grouped view
         if (partner) {
             domainView.style.display = 'none';
             partnerView.classList.add('active');
             if (cleanSection) cleanSection.style.display = 'none';
-            renderPartnerView(partner, domain);
+            renderPartnerView(partner, domain, viewFilter);
             return;
         }
 
@@ -754,44 +811,53 @@
         domainView.style.display = '';
         if (cleanSection) cleanSection.style.display = domain ? 'none' : '';
 
-        const cards = domainView.querySelectorAll('.domain-card');
-        let visible = 0;
-        cards.forEach(card => {
-            const name = card.getAttribute('data-domain');
-            if (!domain || name === domain) {
+        var cards = domainView.querySelectorAll('.domain-card');
+        var visible = 0;
+        cards.forEach(function(card) {
+            var name = card.getAttribute('data-domain');
+            var hasP1 = card.getAttribute('data-has-p1') === 'true';
+            var hasP2 = card.getAttribute('data-has-p2') === 'true';
+
+            var domainMatch = !domain || name === domain;
+            var viewMatch = true;
+            if (viewFilter === 'p1') viewMatch = hasP1;
+            if (viewFilter === 'p2') viewMatch = hasP2;
+
+            if (domainMatch && viewMatch) {
                 card.style.display = '';
                 visible++;
             } else {
                 card.style.display = 'none';
             }
         });
-        document.getElementById('no-results').style.display = (domain && visible === 0) ? 'block' : 'none';
+        document.getElementById('no-results').style.display = (visible === 0) ? 'block' : 'none';
     }
 
-    function renderPartnerView(partner, domainFilter) {
-        const pv = document.getElementById('partner-view');
-        // Group data by domain for this partner
-        const grouped = {};
-        ALL_DATA.forEach(d => {
+    function renderPartnerView(partner, domainFilter, viewFilter) {
+        var pv = document.getElementById('partner-view');
+        var grouped = {};
+        ALL_DATA.forEach(function(d) {
             if (d.partner !== partner) return;
             if (domainFilter && d.domain !== domainFilter) return;
+            if (viewFilter === 'p1' && d.priority !== 1) return;
+            if (viewFilter === 'p2' && d.priority !== 2) return;
             if (!grouped[d.domain]) grouped[d.domain] = [];
             grouped[d.domain].push(d);
         });
 
-        const domains = Object.keys(grouped).sort();
+        var domains = Object.keys(grouped).sort();
         if (domains.length === 0) {
-            pv.innerHTML = '<div style="text-align:center;color:#8b949e;padding:40px">No missing lines for this partner.</div>';
+            pv.innerHTML = '<div style="text-align:center;color:#78909C;padding:40px">No missing lines for this partner.</div>';
             document.getElementById('no-results').style.display = 'none';
             return;
         }
 
-        let html = '<div style="text-align:center;margin-bottom:16px;color:#a5b4fc;font-size:15px;font-weight:600">' + partner + ' &mdash; missing on ' + domains.length + ' domain(s)</div>';
-        domains.forEach(dom => {
-            const lines = grouped[dom];
+        var html = '<div style="text-align:center;margin-bottom:16px;color:#DDF96C;font-size:15px;font-weight:600">' + partner + ' &mdash; missing on ' + domains.length + ' domain(s)</div>';
+        domains.forEach(function(dom) {
+            var lines = grouped[dom];
             html += '<div class="partner-result-card"><div class="pv-domain">' + dom + '</div>';
-            lines.forEach(l => {
-                const pcls = l.priority === 1 ? 'p1' : 'p2';
+            lines.forEach(function(l) {
+                var pcls = l.priority === 1 ? 'p1' : 'p2';
                 html += '<div class="pv-line"><span class="pv-priority ' + pcls + '">P' + l.priority + '</span><span class="type-badge">' + l.type + '</span> <code>' + l.row.replace(/</g,'&lt;') + '</code></div>';
             });
             html += '</div>';
@@ -801,49 +867,49 @@
     }
 
     function getSelectedPriority() {
-        const checked = document.querySelector('input[name="copy-priority"]:checked');
+        var checked = document.querySelector('input[name="copy-priority"]:checked');
         return checked ? checked.value : 'both';
     }
 
     function smartCopy(btn) {
-        const domain = document.getElementById('domain-picker').value;
-        const partner = document.getElementById('partner-picker').value;
-        const prio = getSelectedPriority();
+        var domain = document.getElementById('domain-picker').value;
+        var partner = document.getElementById('partner-picker').value;
+        var prio = getSelectedPriority();
 
-        const lines = ALL_DATA.filter(d => {
+        var lines = ALL_DATA.filter(function(d) {
             if (domain && d.domain !== domain) return false;
             if (partner && d.partner !== partner) return false;
             if (prio === 'p1' && d.priority !== 1) return false;
             if (prio === 'p2' && d.priority !== 2) return false;
             return true;
-        }).map(d => d.row);
+        }).map(function(d) { return d.row; });
 
         if (lines.length === 0) {
             flashBtn(btn, 'Nothing to copy', 'copied');
             return;
         }
-        const text = lines.join('\n\n');
-        navigator.clipboard.writeText(text).then(() => {
+        var text = lines.join('\n\n');
+        navigator.clipboard.writeText(text).then(function() {
             flashBtn(btn, 'Copied ' + lines.length + ' lines!', 'copied');
         });
     }
 
     function copySectionLines(btn, priority) {
-        const card = btn.closest('.domain-card');
-        const domain = card.getAttribute('data-domain');
-        const pNum = priority === 'p1' ? 1 : 2;
-        const lines = ALL_DATA.filter(d => d.domain === domain && d.priority === pNum).map(d => d.row);
+        var card = btn.closest('.domain-card');
+        var domain = card.getAttribute('data-domain');
+        var pNum = priority === 'p1' ? 1 : 2;
+        var lines = ALL_DATA.filter(function(d) { return d.domain === domain && d.priority === pNum; }).map(function(d) { return d.row; });
         if (lines.length === 0) return;
-        navigator.clipboard.writeText(lines.join('\n\n')).then(() => {
+        navigator.clipboard.writeText(lines.join('\n\n')).then(function() {
             flashBtn(btn, 'Copied!', 'copied');
         });
     }
 
     function flashBtn(btn, msg, cls) {
-        const orig = btn.textContent;
+        var orig = btn.textContent;
         btn.textContent = msg;
         btn.classList.add(cls);
-        setTimeout(() => {
+        setTimeout(function() {
             btn.textContent = orig;
             btn.classList.remove(cls);
         }, 2000);
